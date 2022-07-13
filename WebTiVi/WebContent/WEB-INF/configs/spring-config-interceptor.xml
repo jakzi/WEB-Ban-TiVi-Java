@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	   		http://www.springframework.org/schema/beans/spring-beans.xsd
+	   		http://www.springframework.org/schema/context
+	   		http://www.springframework.org/schema/context/spring-context.xsd
+	   		http://www.springframework.org/schema/tx 
+			http://www.springframework.org/schema/tx/spring-tx.xsd
+			http://www.springframework.org/schema/mvc 
+			http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/ad-don-hang.htm"/>
+			<mvc:mapping path="/ad-san-pham.htm"/>
+			<mvc:mapping path="/quan-ly.htm"/>
+			<mvc:mapping path="/nguoi-dung.htm"/>
+			<mvc:mapping path="/danh-muc.htm"/>
+			<mvc:mapping path="/thuong-hieu.htm"/>
+			<mvc:mapping path="/ad-don-hang/**"/>
+			<mvc:mapping path="/ad-san-pham/**"/>
+			<mvc:mapping path="/quan-ly/**"/>
+			<mvc:mapping path="/nguoi-dung/**"/>
+			<mvc:mapping path="/danh-muc/**"/>
+			<mvc:mapping path="/thuong-hieu/**"/>
+			<bean class="web.interceptor.admin"/>
+		</mvc:interceptor>
+		
+	</mvc:interceptors>
+	<!-- Cấu hình interceptor --> 
+	<mvc:interceptors>  
+		<mvc:interceptor>
+			<mvc:mapping path="dang-xuat.htm"/>
+			<mvc:mapping path="tai-khoan.htm"/>	
+			<mvc:mapping path="tai-khoan/**"/>
+			<mvc:mapping path="mua-hang.htm"/>	
+			<bean class="web.interceptor.client"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
+
+</beans>
